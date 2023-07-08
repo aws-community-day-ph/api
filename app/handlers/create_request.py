@@ -2,9 +2,35 @@
 
 import json
 import boto3
+from datetime import datetime
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('my-dynamodb-table')
+table = dynamodb.Table('photo-booth-app')
+
+def generate_request_id():
+    # Get the current date and time
+    current_datetime = datetime.now()
+
+    # Format the date as "YYYYMMDD"
+    date_today = current_datetime.strftime('%Y%m%d')
+
+    # Query the DynamoDB table to get the current count for the date
+    response = table.get_item(Key={'requestId': date_today})
+    item = response.get('Item')
+
+    # If no item exists for the date, start the count at 1
+    if item is None:
+        count = 1
+    else:
+        count = item.get('count', 0) + 1
+
+    # Update the count for the date in the DynamoDB table
+    table.put_item(Item={'requestId': date_today, 'count': count})
+
+    # Generate the requestId using the format R-datetoday-count
+    request_id = f'R-{date_today}-{count:03}'
+
+    return request_id
 
 def handler(event, context):
     # Parse request body
@@ -13,8 +39,10 @@ def handler(event, context):
     # Extract data from request body
     emails = request_body['emails']
     image_path = request_body['image_path']
-    request_id = request_body['request_id']
     status = request_body['status']
+
+    # Generate the requestId
+    request_id = generate_request_id()
 
     # Save the request to DynamoDB
     table.put_item(
@@ -29,6 +57,7 @@ def handler(event, context):
     # Return a response
     response = {
         'statusCode': 200,
-        'body': json.dumps({'message': 'Request created successfully'})
+        'body': json.dumps({'message': 'Request created successfully', 'requestId': request_id})
     }
     return response
+ 

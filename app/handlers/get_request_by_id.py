@@ -4,7 +4,7 @@ import json
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('my-dynamodb-table')
+table = dynamodb.Table('photo-booth-app')
 
 def handler(event, context):
     # Extract request ID from path parameter

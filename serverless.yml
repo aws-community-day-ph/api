@@ -4,6 +4,27 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: python3.9
+  region: ap-southeast-1
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:DescribeTable
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource: '*'
+        - Effect: 'Allow'
+          Action:
+            - 's3:ListBucket'
+            - 's3:GetObject'
+          Resource: '*'
+  environment:
+    TABLE_NAME: photo-booth-app
 
 
 resources:
@@ -11,7 +32,7 @@ resources:
     MyDynamoDBTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: my-dynamodb-table
+        TableName: ${self:provider.environment.TABLE_NAME}
         AttributeDefinitions:
           - AttributeName: requestId
             AttributeType: S
@@ -19,13 +40,8 @@ resources:
           - AttributeName: requestId
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 5
-
-    MyS3Bucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: my-s3-bucket
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
 
 functions:
