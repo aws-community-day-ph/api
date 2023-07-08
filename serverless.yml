@@ -1,0 +1,79 @@
+service: api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+
+
+resources:
+  Resources:
+    MyDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: my-dynamodb-table
+        AttributeDefinitions:
+          - AttributeName: requestId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: requestId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+
+    MyS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: my-s3-bucket
+
+
+functions:
+  hello:
+    handler: app/handlers/handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+  createRequest:
+      handler: app/handlers/create_request.handler
+      events:
+        - http:
+            path: request/create
+            method: post
+
+  getRequestById:
+    handler: app/handlers/get_request_by_id.handler
+    events:
+      - http:
+          path: requests/{requestId}
+          method: get
+
+  getAllRequests:
+    handler: app/handlers/get_all_requests.handler
+    events:
+      - http:
+          path: requests
+          method: get
+
+  deleteRequestById:
+    handler: app/handlers/delete_request_by_id.handler
+    events:
+      - http:
+          path: requests/{requestId}
+          method: delete
+
+  updateRequestById:
+    handler: app/handlers/update_request_by_id.handler
+    events:
+      - http:
+          path: requests/{requestId}
+          method: put
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+    exclude:
+      - tests/**
+    pythonBin: python3
