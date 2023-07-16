@@ -1,4 +1,6 @@
-# src/handlers/createRequest.py
+# src/handlers/createRequest.py 
+# pushed sample
+
 
 import json
 import boto3
@@ -60,4 +62,7 @@ def handler(event, context):
         'body': json.dumps({'message': 'Request created successfully', 'requestId': request_id})
     }
     return response
+
+
+
  

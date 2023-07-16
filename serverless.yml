@@ -86,6 +86,13 @@ functions:
       - http:
           path: requests/{requestId}
           method: put
+  
+  getVolunteers:
+    handler: app/handlers/get_volunteers.handler
+    events:
+      - http:
+          path: volunteers
+          method: get
 
 custom:
   pythonRequirements:
