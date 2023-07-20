@@ -1,5 +1,5 @@
 service: api
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
@@ -17,15 +17,14 @@ provider:
             - dynamodb:PutItem
             - dynamodb:UpdateItem
             - dynamodb:DeleteItem
-          Resource: '*'
-        - Effect: 'Allow'
+          Resource: "*"
+        - Effect: "Allow"
           Action:
-            - 's3:ListBucket'
-            - 's3:GetObject'
-          Resource: '*'
+            - "s3:ListBucket"
+            - "s3:GetObject"
+          Resource: "*"
   environment:
     TABLE_NAME: photo-booth-app
-
 
 resources:
   Resources:
@@ -43,7 +42,6 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
 
-
 functions:
   hello:
     handler: app/handlers/handler.hello
@@ -53,11 +51,11 @@ functions:
           method: get
 
   createRequest:
-      handler: app/handlers/create_request.handler
-      events:
-        - http:
-            path: request/create
-            method: post
+    handler: app/handlers/create_request.handler
+    events:
+      - http:
+          path: request/create
+          method: post
 
   getRequestById:
     handler: app/handlers/get_request_by_id.handler
@@ -86,12 +84,19 @@ functions:
       - http:
           path: requests/{requestId}
           method: put
-  
+
   getVolunteers:
     handler: app/handlers/get_volunteers.handler
     events:
       - http:
           path: volunteers
+          method: get
+
+  sendEmail:
+    handler: app/handlers/send_emails.handler
+    events:
+      - http:
+          path: send_email/{requestId}
           method: get
 
 custom:
