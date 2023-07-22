@@ -1,4 +1,4 @@
-#!C:\Users\Isaeus\OneDrive\Desktop\Aki\api\venv\Scripts\python.exe
+#!c:\users\isaeus\onedrive\desktop\aki\api\venv\scripts\python.exe
 
 import sys
 import json

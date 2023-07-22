@@ -22,6 +22,3 @@ def handler(event, context):
             "Access-Control-Allow-Origin": "*",  # This allows CORS from any origin
         }
     }
-
-
-

@@ -95,3 +95,8 @@ git push origin master
 - `git add .` will add all changes to the stage
 - `git commit -m "short message here"` will finalize the changes and save them
 - `git push origin master` will upload the changes to the remote repository (origin)
+
+# To-do list
+
+- Ayusin return responses
+- Update status sa dynamodb
