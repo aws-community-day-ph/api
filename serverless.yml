@@ -23,6 +23,12 @@ provider:
             - "s3:ListBucket"
             - "s3:GetObject"
           Resource: "*"
+        - Effect: Allow
+          Action:
+            - ses:CreateTemplate
+            - ses:UpdateTemplate
+            - ses:SendTemplatedEmail
+          Resource: "*"
   environment:
     TABLE_NAME: photo-booth-app
 
@@ -97,11 +103,12 @@ functions:
     events:
       - http:
           path: send_email/{requestId}
-          method: get
+          method: post
 
-custom:
-  pythonRequirements:
-    dockerizePip: non-linux
-    exclude:
-      - tests/**
-    pythonBin: python3
+plugins:
+  - serverless-python-requirements
+
+package:
+  exclude:
+    - node_modules/**
+    - venv/**

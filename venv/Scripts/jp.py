@@ -1,4 +1,4 @@
-#!/Users/ecloudvalley/Documents/AWS Community/projects/photo-booth-app/api/venv/bin/python
+#!C:\Users\Isaeus\OneDrive\Desktop\Aki\api\venv\Scripts\python.exe
 
 import sys
 import json
