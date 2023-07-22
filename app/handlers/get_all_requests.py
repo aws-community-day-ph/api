@@ -11,20 +11,17 @@ def handler(event, context):
     # Retrieve all requests from DynamoDB
     response = table.scan()
     items = response['Items']
+    print(items)
 
-    # Return a response
-
-    return Response(
-        status_code=200,
-        content_type=content_types.APPLICATION_JSON,
-        headers={
+    # Return the dictionary with statusCode and body
+    return {
+        "statusCode": 200,
+        "body": json.dumps(items,  default=str),
+        "headers": {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-        },
-        body=json.dumps({ 
-            "success": True,
-            "status": "success",
-            "message": items
-        
-    }),
-)
+            "Access-Control-Allow-Origin": "*",  # This allows CORS from any origin
+        }
+    }
+
+
+
