@@ -61,4 +61,16 @@ def handler(event, context):
     response = table.get_item(Key={'requestId': request_id})
     items = response['Item']
 
+    update_template(items)
     send_email(items)
+
+    body = {
+        "body": "Email sent!"
+    }
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
+
+    return response
