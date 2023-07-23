@@ -5,25 +5,18 @@
 
 import boto3
 import json
-from jinja2 import Environment
-from jinja2_s3loader import S3loader
 
 dynamodb = boto3.resource("dynamodb")
 ses_client = boto3.client("ses")
-s3 = boto3.resource("s3")
+s3 = boto3.client("s3")
 table = dynamodb.Table("photo-booth-app")
-
-def generate_template(imagePath):
-    # Create an environment
-    env = Environment(loader=S3loader('photobooth-assets', 'templates'))
-
-    # Create the template
-    template = env.get_template('email.html')
-
-    return template.render(imagePath=imagePath)
 
 
 def update_template(items):
+    # Get access to email.html in s3
+    response = s3.get_object(Bucket='photobooth-assets', Key='templates/email.html')
+    html_content = response['Body'].read().decode('utf-8')
+
     # Update template
     # (documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses/client/update_template.html)
     reponse = ses_client.update_template(
@@ -31,14 +24,21 @@ def update_template(items):
             "TemplateName": "photo_email_template",
             "SubjectPart": "Here's your photo booth picture!",
             "TextPart": "",
-            "HtmlPart": generate_template(items['imagePath'])
+            "HtmlPart": html_content
         }
     )
+    print("Email template updated!")
 
 
 def send_email(items):
+    # Variable values for email template
     template_data = {
-        'imagePath': items['imagePath']
+        'imagePath': items['imagePath'],
+        "AWSTopLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/AWSTopLogo.svg",
+        "AWSMascot": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/AWSMascot.svg",
+        "BottomLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/BottomLogo.svg",
+        "Instagram": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/Instagram.svg",
+        "Facebook": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/Facebook.svg"
     }
 
     # Send email
@@ -51,6 +51,7 @@ def send_email(items):
         Template = 'photo_email_template',
         TemplateData = json.dumps(template_data)
     )
+    print("Email sent!")
 
 
 def handler(event, context):
