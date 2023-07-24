@@ -28,6 +28,7 @@ provider:
             - ses:CreateTemplate
             - ses:UpdateTemplate
             - ses:SendTemplatedEmail
+            - ses:SendEmail
           Resource: "*"
   environment:
     TABLE_NAME: photo-booth-app

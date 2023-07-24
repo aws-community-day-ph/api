@@ -5,6 +5,9 @@
 
 import boto3
 import json
+import base64
+from jinja2 import Environment
+from jinja2_s3loader import S3loader
 
 dynamodb = boto3.resource("dynamodb")
 ses_client = boto3.client("ses")
@@ -14,7 +17,7 @@ table = dynamodb.Table("photo-booth-app")
 
 def update_template(items):
     # Get access to email.html in s3
-    response = s3.get_object(Bucket='photobooth-assets', Key='templates/email.html')
+    response = s3.get_object(Bucket='photobooth-assets', Key='templates/src_email.html')
     html_content = response['Body'].read().decode('utf-8')
 
     # Update template
@@ -31,26 +34,31 @@ def update_template(items):
 
 
 def send_email(items):
-    # Variable values for email template
+    # Update template
+    update_template(items)
+
+    # TEMPLATE VARIABLES
+    # From hosted images
     template_data = {
         'imagePath': items['imagePath'],
-        "AWSTopLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/AWSTopLogo.svg",
-        "AWSMascot": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/AWSMascot.svg",
-        "BottomLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/BottomLogo.svg",
-        "Instagram": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/Instagram.svg",
-        "Facebook": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWSMascot.svg/Facebook.svg"
+        "AWSTopLogo": "https://i.postimg.cc/y8cdhW1Y/AWSLogo-Top.png",
+        "AWSMascot": "https://i.postimg.cc/MKTbrpy0/AWSMascot.png",
+        "BottomLogo": "https://i.postimg.cc/ncPY8fky/Bottom-Logo.png",
+        "Instagram": "https://i.postimg.cc/Hk5cKtWy/IG.png",
+        "Facebook": "https://i.postimg.cc/rF7RQHTT/FB.png"
     }
 
-    # Send email
+    # SEND EMAIL
+    # Using hosted images
     ses_client.send_templated_email(
         Source = 'anthony.basang18@gmail.com',
         Destination = {
             'ToAddresses': items['emails']
         },
-        ReplyToAddresses = ['anthony.basang18@gmail.com'],
         Template = 'photo_email_template',
         TemplateData = json.dumps(template_data)
     )
+
     print("Email sent!")
 
 
@@ -62,7 +70,6 @@ def handler(event, context):
     response = table.get_item(Key={'requestId': request_id})
     items = response['Item']
 
-    update_template(items)
     send_email(items)
 
     body = {
