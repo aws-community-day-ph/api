@@ -39,13 +39,26 @@ def send_email(items):
 
     # TEMPLATE VARIABLES
     # From hosted images
+    # Using cloudfront
+    # template_data = {
+    #     'imagePath': items['imagePath'],
+    #     "AWSTopLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/AWS-header.png",
+    #     "AWSMascot": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/mascot.png",
+    #     "BottomLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/bottom-footer.png",
+    #     "Instagram": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Instagram.png",
+    #     "Facebook": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Facebook.png",
+    #     "FeedbackForm": items['imagePath']
+    # }
+
+    # Straight from S3
     template_data = {
         'imagePath': items['imagePath'],
-        "AWSTopLogo": "https://i.postimg.cc/y8cdhW1Y/AWSLogo-Top.png",
-        "AWSMascot": "https://i.postimg.cc/MKTbrpy0/AWSMascot.png",
-        "BottomLogo": "https://i.postimg.cc/ncPY8fky/Bottom-Logo.png",
-        "Instagram": "https://i.postimg.cc/Hk5cKtWy/IG.png",
-        "Facebook": "https://i.postimg.cc/rF7RQHTT/FB.png"
+        "AWSTopLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWS-header.png",
+        "AWSMascot": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/Facebook.png",
+        "BottomLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/Instagram.png",
+        "Instagram": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/bottom-footer.png",
+        "Facebook": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/mascot.png",
+        "FeedbackForm": items['imagePath']
     }
 
     # SEND EMAIL
