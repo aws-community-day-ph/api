@@ -106,13 +106,6 @@ functions:
           path: send_email/{requestId}
           method: post
 
-  getCount:
-    handler: app/handlers/get_count.handler
-    events:
-      - http:
-          path: getcount
-          method: get
-
 plugins:
   - serverless-python-requirements
 
