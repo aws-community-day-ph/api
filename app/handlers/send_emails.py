@@ -40,24 +40,13 @@ def send_email(items):
     # TEMPLATE VARIABLES
     # From hosted images
     # Using cloudfront
-    # template_data = {
-    #     'imagePath': items['imagePath'],
-    #     "AWSTopLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/AWS-header.png",
-    #     "AWSMascot": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/mascot.png",
-    #     "BottomLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/bottom-footer.png",
-    #     "Instagram": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Instagram.png",
-    #     "Facebook": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Facebook.png",
-    #     "FeedbackForm": items['imagePath']
-    # }
-
-    # Straight from S3
     template_data = {
         'imagePath': items['imagePath'],
-        "AWSTopLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/AWS-header.png",
-        "AWSMascot": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/Facebook.png",
-        "BottomLogo": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/Instagram.png",
-        "Instagram": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/bottom-footer.png",
-        "Facebook": "https://photobooth-assets.s3.ap-southeast-1.amazonaws.com/templates/assets/mascot.png",
+        "AWSTopLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/AWS-header.png",
+        "AWSMascot": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/mascot.png",
+        "BottomLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/bottom-footer.png",
+        "Instagram": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Instagram.png",
+        "Facebook": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Facebook.png",
         "FeedbackForm": items['imagePath']
     }
 
@@ -74,6 +63,21 @@ def send_email(items):
 
     print("Email sent!")
 
+def update_status(request_id, items):
+    # Update DynamoDB requestId status
+    table.update_item(
+        Key={
+            'requestId': request_id 
+        },
+        UpdateExpression='SET #status_attr = :status_val',
+        ExpressionAttributeNames={
+            '#status_attr': 'status'
+        },
+        ExpressionAttributeValues={
+            ':status_val': "sent"
+        }
+    )
+
 
 def handler(event, context):
     # Extract request ID from path parameter
@@ -84,9 +88,12 @@ def handler(event, context):
     items = response['Item']
 
     send_email(items)
+    update_status(request_id, items)
 
     body = {
-        "body": "Email sent!"
+        "requestId": request_id,
+        "emails": items["emails"],
+        "body": "Email sent successfully!"
     }
 
     response = {

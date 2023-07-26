@@ -99,7 +99,7 @@ git push origin master
 # To-do list
 
 - Ayusin return responses
-- Update status sa dynamodb
+- Update status sa dynamodb (pending | uploaded | templated | sent)
 - Generate presigned URL of templated image
   - To be discussed: duration ng presigned url
 - Do update request function
