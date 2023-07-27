@@ -5,7 +5,8 @@
 
 import boto3
 import json
-import base64
+import smtplib
+from email.mime.text import MIMEText
 from jinja2 import Environment
 from jinja2_s3loader import S3loader
 
@@ -15,31 +16,7 @@ s3 = boto3.client("s3")
 table = dynamodb.Table("photo-booth-app")
 
 
-def update_template(items):
-    # Get access to email.html in s3
-    response = s3.get_object(Bucket='photobooth-assets', Key='templates/src_email.html')
-    html_content = response['Body'].read().decode('utf-8')
-
-    # Update template
-    # (documentation: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses/client/update_template.html)
-    reponse = ses_client.update_template(
-        Template={
-            "TemplateName": "photo_email_template",
-            "SubjectPart": "Here's your photo booth picture!",
-            "TextPart": "",
-            "HtmlPart": html_content
-        }
-    )
-    print("Email template updated!")
-
-
-def send_email(items):
-    # Update template
-    update_template(items)
-
-    # TEMPLATE VARIABLES
-    # From hosted images
-    # Using cloudfront
+def generate_template(items):
     template_data = {
         'imagePath': items['imagePath'],
         "AWSTopLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/AWS-header.png",
@@ -49,19 +26,36 @@ def send_email(items):
         "Facebook": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Facebook.png",
         "FeedbackForm": items['imagePath']
     }
+    # Create an environment
+    env = Environment(loader=S3loader('photobooth-assets', 'templates'))
 
-    # SEND EMAIL
-    # Using hosted images
-    ses_client.send_templated_email(
-        Source = 'anthony.basang18@gmail.com',
-        Destination = {
-            'ToAddresses': items['emails']
-        },
-        Template = 'photo_email_template',
-        TemplateData = json.dumps(template_data)
-    )
+    # Create the template
+    template = env.get_template('src_email.html')
 
-    print("Email sent!")
+    return template.render(template_data)
+
+
+def send_email_python(items):
+    # Extablish a connection
+    sender_email = "awscommunityday.ph2023@gmail.com"
+    sender_app_pass = "qejqwdnktjqissmq"
+
+    with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+        smtp.ehlo()
+        smtp.starttls()
+        smtp.ehlo()
+
+        smtp.login(sender_email, sender_app_pass)
+    
+        # Generate template
+        msg = MIMEText(generate_template(items), 'html')
+        msg['Subject'] = "Here's your photo booth picture!"
+        msg['From'] = sender_email
+        msg['To'] = ", ".join(items["emails"])
+
+        # Send email
+        smtp.sendmail(sender_email, items["emails"], msg.as_string())
+
 
 def update_status(request_id, items):
     # Update DynamoDB requestId status
@@ -87,7 +81,7 @@ def handler(event, context):
     response = table.get_item(Key={'requestId': request_id})
     items = response['Item']
 
-    send_email(items)
+    send_email_python(items)
     update_status(request_id, items)
 
     body = {
