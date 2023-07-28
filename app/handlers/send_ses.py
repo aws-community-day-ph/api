@@ -5,6 +5,7 @@
 
 import boto3
 import json
+import datetime
 from jinja2 import Environment
 from jinja2_s3loader import S3loader
 
@@ -36,17 +37,32 @@ def send_email(items):
     # Update template
     update_template(items)
 
+    # Generate presigned_url
+    # Replace 'your_bucket_name' and 'your_object_key' with the actual bucket name and object key.
+    bucket_name = 'photobooth-assets'
+    object_key = items['imagePath']
+
+    # Set the expiration time for the pre-signed URL (in this example, set to expire in 1 hour)
+    expiration_time = datetime.timedelta(hours=24)
+
+    # Generate the pre-signed URL
+    presigned_url = s3.generate_presigned_url(
+        'get_object',
+        Params={'Bucket': bucket_name, 'Key': object_key},
+        ExpiresIn=expiration_time.total_seconds()
+    )
+
     # TEMPLATE VARIABLES
     # From hosted images
     # Using cloudfront
     template_data = {
-        'imagePath': items['imagePath'],
+        'imagePath': presigned_url,
         "AWSTopLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/AWS-header.png",
         "AWSMascot": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/mascot.png",
         "BottomLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/bottom-footer.png",
         "Instagram": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Instagram.png",
         "Facebook": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/Facebook.png",
-        "FeedbackForm": items['imagePath']
+        "FeedbackForm": "#"
     }
 
     # SEND EMAIL
@@ -62,7 +78,21 @@ def send_email(items):
 
     print("Email sent!")
 
-def update_status(request_id, items):
+
+def handler(event, context):
+    # Extract request ID from path parameter
+    request_id = event['pathParameters']['requestId']
+
+    # Parse request body
+    request_body = json.loads(event['body'])
+    status = request_body["status"]
+
+    # Retrieve request data from DynamoDB based on request ID
+    response = table.get_item(Key={'requestId': request_id})
+    items = response['Item']
+
+    send_email(items)
+    
     # Update DynamoDB requestId status
     table.update_item(
         Key={
@@ -73,21 +103,9 @@ def update_status(request_id, items):
             '#status_attr': 'status'
         },
         ExpressionAttributeValues={
-            ':status_val': "sent"
+            ':status_val': status
         }
     )
-
-
-def handler(event, context):
-    # Extract request ID from path parameter
-    request_id = event['pathParameters']['requestId']
-
-    # Retrieve request data from DynamoDB based on request ID
-    response = table.get_item(Key={'requestId': request_id})
-    items = response['Item']
-
-    send_email(items)
-    update_status(request_id, items)
 
     body = {
         "requestId": request_id,

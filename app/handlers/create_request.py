@@ -40,7 +40,6 @@ def handler(event, context):
 
     # Extract data from request body
     emails = request_body['emails']
-    image_path = request_body['image_path']
     status = request_body['status']
 
     # Generate the requestId
@@ -51,7 +50,7 @@ def handler(event, context):
         Item={
             'requestId': request_id,
             'emails': emails,
-            'imagePath': image_path,
+            'imagePath': "",
             'status': status
         }
     )

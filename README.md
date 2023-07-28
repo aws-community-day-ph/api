@@ -53,9 +53,9 @@ python -m pip install -r requirements.txt
 # Deploying the code
 
 1. Check if you have successfully setup your AWS CLI profile using `aws configure`.
-   - If there are values, just press enter. If there are none, prefer to the tutorial pinned at the backend GC.
+    - If there are values, just press enter. If there are none, prefer to the tutorial pinned at the backend GC.
 2. Deploy your code using `serverless deploy`.
-   - If any errors arise, inform Sir Tony nalang at most likely baka permission error lang yan.
+    - If any errors arise, inform Sir Tony nalang at most likely baka permission error lang yan.
 
 # Git stuff
 
@@ -91,15 +91,13 @@ git commit -m "short message here"
 git push origin master
 ```
 
-- `pip freeze > requirements.txt` will print all modules used in the code into the requirements.txt file
-- `git add .` will add all changes to the stage
-- `git commit -m "short message here"` will finalize the changes and save them
-- `git push origin master` will upload the changes to the remote repository (origin)
+-   `pip freeze > requirements.txt` will print all modules used in the code into the requirements.txt file
+-   `git add .` will add all changes to the stage
+-   `git commit -m "short message here"` will finalize the changes and save them
+-   `git push origin master` will upload the changes to the remote repository (origin)
 
 # To-do list
 
-- Ayusin return responses
-- Update status sa dynamodb (pending | uploaded | templated | sent)
-- Generate presigned URL of templated image
-  - To be discussed: duration ng presigned url
-- Do update request function
+-   Update status sa dynamodb (pending | uploaded | sent)
+-   Need ng link ng feedback form
+-   Need ng actual bucket for the user templated images
