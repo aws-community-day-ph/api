@@ -89,7 +89,7 @@ functions:
         handler: app/handlers/update_request_by_id.handler
         events:
             - http:
-                  path: requests/{requestId}
+                  path: requests/{requestId}/{status}
                   method: put
 
     getVolunteers:
