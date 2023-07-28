@@ -5,7 +5,6 @@
 
 import boto3
 import json
-import base64
 from jinja2 import Environment
 from jinja2_s3loader import S3loader
 

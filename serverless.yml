@@ -2,114 +2,121 @@ service: api
 frameworkVersion: "3"
 
 provider:
-  name: aws
-  runtime: python3.8
-  region: ap-southeast-1
-  iam:
-    role:
-      statements:
-        - Effect: Allow
-          Action:
-            - dynamodb:DescribeTable
-            - dynamodb:Query
-            - dynamodb:Scan
-            - dynamodb:GetItem
-            - dynamodb:PutItem
-            - dynamodb:UpdateItem
-            - dynamodb:DeleteItem
-          Resource: "*"
-        - Effect: "Allow"
-          Action:
-            - "s3:ListBucket"
-            - "s3:GetObject"
-          Resource: "*"
-        - Effect: Allow
-          Action:
-            - ses:CreateTemplate
-            - ses:UpdateTemplate
-            - ses:SendTemplatedEmail
-            - ses:SendEmail
-          Resource: "*"
-  environment:
-    TABLE_NAME: photo-booth-app
+    name: aws
+    runtime: python3.8
+    region: ap-southeast-1
+    iam:
+        role:
+            statements:
+                - Effect: Allow
+                  Action:
+                      - dynamodb:DescribeTable
+                      - dynamodb:Query
+                      - dynamodb:Scan
+                      - dynamodb:GetItem
+                      - dynamodb:PutItem
+                      - dynamodb:UpdateItem
+                      - dynamodb:DeleteItem
+                  Resource: "*"
+                - Effect: "Allow"
+                  Action:
+                      - "s3:ListBucket"
+                      - "s3:GetObject"
+                  Resource: "*"
+                - Effect: Allow
+                  Action:
+                      - ses:CreateTemplate
+                      - ses:UpdateTemplate
+                      - ses:SendTemplatedEmail
+                      - ses:SendEmail
+                  Resource: "*"
+    environment:
+        TABLE_NAME: photo-booth-app
 
 resources:
-  Resources:
-    MyDynamoDBTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:provider.environment.TABLE_NAME}
-        AttributeDefinitions:
-          - AttributeName: requestId
-            AttributeType: S
-        KeySchema:
-          - AttributeName: requestId
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+    Resources:
+        MyDynamoDBTable:
+            Type: AWS::DynamoDB::Table
+            Properties:
+                TableName: ${self:provider.environment.TABLE_NAME}
+                AttributeDefinitions:
+                    - AttributeName: requestId
+                      AttributeType: S
+                KeySchema:
+                    - AttributeName: requestId
+                      KeyType: HASH
+                ProvisionedThroughput:
+                    ReadCapacityUnits: 1
+                    WriteCapacityUnits: 1
 
 functions:
-  hello:
-    handler: app/handlers/handler.hello
-    events:
-      - httpApi:
-          path: /
-          method: get
+    hello:
+        handler: app/handlers/handler.hello
+        events:
+            - httpApi:
+                  path: /
+                  method: get
 
-  createRequest:
-    handler: app/handlers/create_request.handler
-    events:
-      - http:
-          path: request/create
-          method: post
+    createRequest:
+        handler: app/handlers/create_request.handler
+        events:
+            - http:
+                  path: request/create
+                  method: post
 
-  getRequestById:
-    handler: app/handlers/get_request_by_id.handler
-    events:
-      - http:
-          path: requests/{requestId}
-          method: get
+    getRequestById:
+        handler: app/handlers/get_request_by_id.handler
+        events:
+            - http:
+                  path: requests/{requestId}
+                  method: get
 
-  getAllRequests:
-    handler: app/handlers/get_all_requests.handler
-    events:
-      - http:
-          path: requests
-          method: get
+    getAllRequests:
+        handler: app/handlers/get_all_requests.handler
+        events:
+            - http:
+                  path: requests
+                  method: get
 
-  deleteRequestById:
-    handler: app/handlers/delete_request_by_id.handler
-    events:
-      - http:
-          path: requests/{requestId}
-          method: delete
+    deleteRequestById:
+        handler: app/handlers/delete_request_by_id.handler
+        events:
+            - http:
+                  path: requests/{requestId}
+                  method: delete
 
-  updateRequestById:
-    handler: app/handlers/update_request_by_id.handler
-    events:
-      - http:
-          path: requests/{requestId}
-          method: put
+    updateRequestById:
+        handler: app/handlers/update_request_by_id.handler
+        events:
+            - http:
+                  path: requests/{requestId}
+                  method: put
 
-  getVolunteers:
-    handler: app/handlers/get_volunteers.handler
-    events:
-      - http:
-          path: volunteers
-          method: get
+    getVolunteers:
+        handler: app/handlers/get_volunteers.handler
+        events:
+            - http:
+                  path: volunteers
+                  method: get
 
-  sendEmail:
-    handler: app/handlers/send_emails.handler
-    events:
-      - http:
-          path: send_email/{requestId}
-          method: post
+    sendSES:
+        handler: app/handlers/send_ses.handler
+        events:
+            - http:
+                  path: send_ses/{requestId}
+                  method: post
+
+    sendGmail:
+        handler: app/handlers/send_gmail.handler
+        events:
+            - http:
+                  path: send_gmail/{requestId}
+                  method: post
 
 plugins:
-  - serverless-python-requirements
+    - serverless-python-requirements
 
 package:
-  exclude:
-    - node_modules/**
-    - venv/**
+    exclude:
+        - node_modules/**
+        - venv/**
