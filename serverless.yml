@@ -112,6 +112,13 @@ functions:
             - http:
                   path: send_gmail/{requestId}
                   method: post
+    
+    getCount:
+        handler: app/handlers/get_count.handler
+        events:
+            - http:
+                  path: get_count
+                  method: get
 
 plugins:
     - serverless-python-requirements
