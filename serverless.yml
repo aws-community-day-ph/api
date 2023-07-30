@@ -112,7 +112,7 @@ functions:
             - http:
                   path: send_gmail/{requestId}
                   method: post
-    
+
     getCount:
         handler: app/handlers/get_count.handler
         events:
@@ -127,3 +127,6 @@ package:
     exclude:
         - node_modules/**
         - venv/**
+        - download_objects.py
+        - get_null_requests.py
+        - downloaded_files/**

@@ -8,6 +8,7 @@ import json
 import datetime
 from jinja2 import Environment
 from jinja2_s3loader import S3loader
+from botocore.exceptions import ClientError
 
 dynamodb = boto3.resource("dynamodb")
 ses_client = boto3.client("ses")
@@ -40,15 +41,25 @@ def send_email(items):
     # Generate presigned_url
     # Replace 'your_bucket_name' and 'your_object_key' with the actual bucket name and object key.
     bucket_name = "templated-photo"
-    object_key = items["imagePath"]
+    folder = items["imagePath"]
 
     # Set the expiration time for the pre-signed URL (in this example, set to expire in 1 hour)
     expiration_time = datetime.timedelta(days=7)
 
-    # Generate the pre-signed URL
-    presigned_url = s3.generate_presigned_url(
+    # Generate the pre-signed URLs
+    image1 = s3.generate_presigned_url(
         "get_object",
-        Params={"Bucket": bucket_name, "Key": object_key},
+        Params={"Bucket": bucket_name, "Key": f"{folder}/{folder}_1.png"},
+        ExpiresIn=expiration_time.total_seconds(),
+    )
+    image2 = s3.generate_presigned_url(
+        "get_object",
+        Params={"Bucket": bucket_name, "Key": f"{folder}/{folder}_2.png"},
+        ExpiresIn=expiration_time.total_seconds(),
+    )
+    image3 = s3.generate_presigned_url(
+        "get_object",
+        Params={"Bucket": bucket_name, "Key": f"{folder}/{folder}_3.png"},
         ExpiresIn=expiration_time.total_seconds(),
     )
 
@@ -56,7 +67,9 @@ def send_email(items):
     # From hosted images
     # Using cloudfront
     template_data = {
-        "imagePath": presigned_url,
+        "imagePath1": image1,
+        "imagePath2": image2,
+        "imagePath3": image3,
         "AWSTopLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/AWS-header.png",
         "AWSMascot": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/mascot.png",
         "BottomLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/bottom-footer.png",
@@ -65,16 +78,35 @@ def send_email(items):
         "FeedbackForm": "https://forms.gle/fahRyDJuC5SEpEJF9",
     }
 
+    # VERIFY EMAILS
+    emails = [email for email in items["emails"] if email != ""]
+    sent_emails = []
+    failed_emails = []
+    errors = []
+
     # SEND EMAIL
-    # Using hosted images
-    ses_client.send_templated_email(
-        Source="anthony.basang18@gmail.com",
-        Destination={"ToAddresses": items["emails"]},
-        Template="photo_email_template",
-        TemplateData=json.dumps(template_data),
-    )
+    for email in emails:
+        try:
+            # Using hosted images
+            ses_client.send_templated_email(
+                Source="awscommunityday.ph2023@gmail.com",
+                Destination={"ToAddresses": [email]},
+                Template="photo_email_template",
+                TemplateData=json.dumps(template_data),
+            )
+        except ClientError as e:
+            if e.response["Erorr"]["Code"] == "MessageRejected":
+                print(f"Email could not be sent to {email}. Reason: {e.response['Error']['Message']}", )
+            else:
+                print(f"An unexpected error occurred: {e}")
+            errors.append(str(e))
+            failed_emails.append(e)
+            continue
+        sent_emails.append(email)
+
 
     print("Email sent!")
+    return sent_emails, failed_emails, errors
 
 
 def handler(event, context):
@@ -85,7 +117,7 @@ def handler(event, context):
     response = table.get_item(Key={"requestId": request_id})
     items = response["Item"]
 
-    send_email(items)
+    emails, failures, errors = send_email(items)
 
     # Update DynamoDB requestId status
     table.update_item(
@@ -97,7 +129,9 @@ def handler(event, context):
 
     body = {
         "requestId": request_id,
-        "emails": items["emails"],
+        "successful_emails": emails,
+        "failed_emails": failures,
+        "errors": errors,
         "body": "Email sent successfully!",
     }
 
