@@ -99,11 +99,18 @@ functions:
                   path: volunteers
                   method: get
 
-    sendSES:
-        handler: app/handlers/send_ses.handler
+    sendSESMany:
+        handler: app/handlers/send_ses_many.handler
         events:
             - http:
-                  path: send_ses/{requestId}
+                  path: send_ses_many/{requestId}
+                  method: post
+
+    sendSESOne:
+        handler: app/handlers/send_ses_one.handler
+        events:
+            - http:
+                  path: send_ses_one/{requestId}
                   method: post
 
     sendGmail:

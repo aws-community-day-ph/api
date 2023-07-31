@@ -1,0 +1,241 @@
+R-20230729-067: 403 | {'message': 'Missing Authentication Token'}
+
+R-20230729-016: {'requestId': 'R-20230729-016', 'successful_emails': ['lionette.david@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-081: {'requestId': 'R-20230729-081', 'successful_emails': ['christopherbryanevangelista@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-091: {'requestId': 'R-20230729-091', 'successful_emails': ['miguel.fermin92@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-049: {'requestId': 'R-20230729-049', 'successful_emails': ['rmiguel@chicagobooth.edu', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-063: {'requestId': 'R-20230729-063', 'successful_emails': ['carl.alberto@pantheon.io', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-036: {'requestId': 'R-20230729-036', 'successful_emails': ['gorzonma.liwayway@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-104: {'requestId': 'R-20230729-104', 'successful_emails': ['lannzow@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-048: {'requestId': 'R-20230729-048', 'successful_emails': ['luzanokurtchristian@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-110: {'requestId': 'R-20230729-110', 'successful_emails': ['jevilyn30@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-119: {'requestId': 'R-20230729-119', 'successful_emails': ['francisromasanta14@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-035: {'requestId': 'R-20230729-035', 'successful_emails': ['joven.dativo@outlook.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-060: {'requestId': 'R-20230729-060', 'successful_emails': ['nishationgzon2003@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-064: {'requestId': 'R-20230729-064', 'successful_emails': ['bognotcassandra@gmail.com', 'lannzow@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-121: {'requestId': 'R-20230729-121', 'successful_emails': ['miguelharveyvelasco@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-114: {'requestId': 'R-20230729-114', 'successful_emails': ['aanaguio@up.edu.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-112: {'requestId': 'R-20230729-112', 'successful_emails': ['aemyobinguar@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-047: {'requestId': 'R-20230729-047', 'successful_emails': ['raceliscya@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-018: {'requestId': 'R-20230729-018', 'successful_emails': ['jveruen47@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-028: 502 | {'message': 'Internal server error'}
+
+R-20230729-118: {'requestId': 'R-20230729-118', 'successful_emails': ['johnkevinlosito@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-077: {'requestId': 'R-20230729-077', 'successful_emails': ['jay@streetwebs.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-020: {'requestId': 'R-20230729-020', 'successful_emails': ['anthony.basang18@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-102: {'requestId': 'R-20230729-102', 'successful_emails': ['dexter@helixpay.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-097: {'requestId': 'R-20230729-097', 'successful_emails': ['corderofelix101@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-090: {'requestId': 'R-20230729-090', 'successful_emails': ['ernestfortunedecelis@yahoo.com.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-053: {'requestId': 'R-20230729-053', 'successful_emails': ['amgarcia06@live.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-117: {'requestId': 'R-20230729-117', 'successful_emails': ['brianmaysebastian@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-038: {'requestId': 'R-20230729-038', 'successful_emails': ['sdap19@yahoo.com', 'gnarbuis@gmail.com', 'chitotuason@yahoo.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-093: {'requestId': 'R-20230729-093', 'successful_emails': ['boquincyibanez@yahoo.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-073: {'requestId': 'R-20230729-073', 'successful_emails': ['j.renzon@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-027: {'requestId': 'R-20230729-027', 'successful_emails': ['marcsamuelpabilona@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-013: {'requestId': 'R-20230729-013', 'successful_emails': ['jethro.medina115@gmail.com', 'andydymasarque@gmail.com', 'carlancealmeda27@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-116: {'requestId': 'R-20230729-116', 'successful_emails': ['lenarlene03@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-065: {'requestId': 'R-20230729-065', 'successful_emails': ['nicoleserapio01@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-085: {'requestId': 'R-20230729-085', 'successful_emails': ['anton3mon@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-044: {'requestId': 'R-20230729-044', 'successful_emails': ['jmdccarandang05@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-037: {'requestId': 'R-20230729-037', 'successful_emails': ['nathaliamancilla30@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-082: {'requestId': 'R-20230729-082', 'successful_emails': ['alekzene.cs@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-029: {'requestId': 'R-20230729-029', 'successful_emails': ['kmclrncvinasoy@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-094: {'requestId': 'R-20230729-094', 'successful_emails': ['anthonyjamescatipay07@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-011: {'requestId': 'R-20230729-011', 'successful_emails': ['kayne.rodrigo11@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-032: {'requestId': 'R-20230729-032', 'successful_emails': ['discoverrahul11@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-129: {'requestId': 'R-20230729-129', 'successful_emails': ['keithmonte15@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-059: {'requestId': 'R-20230729-059', 'successful_emails': ['crislhan.fabila@tup.edu.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-111: {'requestId': 'R-20230729-111', 'successful_emails': ['fernandez.wynz@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-031: {'requestId': 'R-20230729-031', 'successful_emails': ['sclauguico@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-025: {'requestId': 'R-20230729-025', 'successful_emails': ['renielcedric.lagar@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-103: {'requestId': 'R-20230729-103', 'successful_emails': ['dalitdave03@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-051: {'requestId': 'R-20230729-051', 'successful_emails': ['janrowellarouello@gmaill.com', 'lachee330@gmail.com', 'empcruz11@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-010: 502 | {'message': 'Internal server error'}
+
+R-20230729-007: {'requestId': 'R-20230729-007', 'successful_emails': ['renzs@spacesium.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-050: {'requestId': 'R-20230729-050', 'successful_emails': ['facunlamarian04@gmail.com', 'jhanice.pablo@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-123: {'requestId': 'R-20230729-123', 'successful_emails': ['romeobernardino@hierpayroll.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-100: {'requestId': 'R-20230729-100', 'successful_emails': ['amilissaaraneta@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-008: {'requestId': 'R-20230729-008', 'successful_emails': ['amtuazon2020@plm.edu.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-108: {'requestId': 'R-20230729-108', 'successful_emails': ['elijah.serdan09@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-127: {'requestId': 'R-20230729-127', 'successful_emails': ['chuajansen82@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-074: {'requestId': 'R-20230729-074', 'successful_emails': ['alaintorno@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-052: {'requestId': 'R-20230729-052', 'successful_emails': ['yao.haniemay@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-005: {'requestId': 'R-20230729-005', 'successful_emails': ['krstnvlllbs@gmail.com', 'francisromasanta14@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-062: {'requestId': 'R-20230729-062', 'successful_emails': ['lec_02@ymail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-057: {'requestId': 'R-20230729-057', 'successful_emails': ['nasayao.jessica@gmail.com', 'amos.changcoco@gmail.com', 'xmatthewochoa@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-128: {'requestId': 'R-20230729-128', 'successful_emails': ['airamaerobles@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-014: {'requestId': 'R-20230729-014', 'successful_emails': ['cjalpornon@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-045: {'requestId': 'R-20230729-045', 'successful_emails': ['johnrolandluzong@outlook.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-026: {'requestId': 'R-20230729-026', 'successful_emails': ['gdavid@edukasyon.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-019: {'requestId': 'R-20230729-019', 'successful_emails': ['ninovenzone@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-080: {'requestId': 'R-20230729-080', 'successful_emails': ['anthonyjamescatipay07@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-105: {'requestId': 'R-20230729-105', 'successful_emails': ['ivyr.guevarra@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-101: {'requestId': 'R-20230729-101', 'successful_emails': ['dlfuente.felixjerome@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-107: {'requestId': 'R-20230729-107', 'successful_emails': ['jomercado0815@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-034: {'requestId': 'R-20230729-034', 'successful_emails': ['joannedegz@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-023: {'requestId': 'R-20230729-023', 'successful_emails': ['micotacazon02@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-115: {'requestId': 'R-20230729-115', 'successful_emails': ['aalbayda@up.edu.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-024: {'requestId': 'R-20230729-024', 'successful_emails': ['acpalacol@outlook.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-067: {'requestId': 'R-20230729-067', 'successful_emails': ['cedricrivera2@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-106: {'requestId': 'R-20230729-106', 'successful_emails': ['brianmaysebastian@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-098: {'requestId': 'R-20230729-098', 'successful_emails': ['adapvielka@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-135: {'requestId': 'R-20230729-135', 'successful_emails': ['isaeus.guiang26@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-061: {'requestId': 'R-20230729-061', 'successful_emails': ['amgarcia06@live.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-124: {'requestId': 'R-20230729-124', 'successful_emails': ['jeniffersarroyo@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-006: {'requestId': 'R-20230729-006', 'successful_emails': ['christopherbryanevangelista@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-120: {'requestId': 'R-20230729-120', 'successful_emails': ['majjade.staana@qairos.asia', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-066: {'requestId': 'R-20230729-066', 'successful_emails': ['obis.chester@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-086: {'requestId': 'R-20230729-086', 'successful_emails': ['minetteyasay@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-070: {'requestId': 'R-20230729-070', 'successful_emails': ['alexanderjames.cebreiros@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-072: {'requestId': 'R-20230729-072', 'successful_emails': ['piolojustincabigao@gmail.com', 'gabrielluismaverick@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-088: {'requestId': 'R-20230729-088', 'successful_emails': ['lrsl0123@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-017: {'requestId': 'R-20230729-017', 'successful_emails': ['bognotcassandra@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-022: {'requestId': 'R-20230729-022', 'successful_emails': ['gerard.dangca@infor.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-021: {'requestId': 'R-20230729-021', 'successful_emails': ['jefersondeleonjef@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-126: {'requestId': 'R-20230729-126', 'successful_emails': ['marlemaeboltiador@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-096: {'requestId': 'R-20230729-096', 'successful_emails': ['malot.morales@packetworx.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-046: {'requestId': 'R-20230729-046', 'successful_emails': ['ccondolon@devcon.ph', 'mcjlcondolon@tip.edu.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-113: {'requestId': 'R-20230729-113', 'successful_emails': ['brianmaysebastian@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-089: {'requestId': 'R-20230729-089', 'successful_emails': ['bautistaninaa@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-075: {'requestId': 'R-20230729-075', 'successful_emails': ['moganut@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-069: {'requestId': 'R-20230729-069', 'successful_emails': ['elaiza.padilla@obf.ateneo.edu', 'marvinmauricio84@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-068: {'requestId': 'R-20230729-068', 'successful_emails': ['insidiae423@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-076: {'requestId': 'R-20230729-076', 'successful_emails': ['marlolerit.freelance@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-079: {'requestId': 'R-20230729-079', 'successful_emails': ['sylvancahilog@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-012: {'requestId': 'R-20230729-012', 'successful_emails': ['andrewcustomerhelper@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-122: {'requestId': 'R-20230729-122', 'successful_emails': ['kaye.alvarado@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-030: {'requestId': 'R-20230729-030', 'successful_emails': ['nics62796jauregui@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-125: {'requestId': 'R-20230729-125', 'successful_emails': ['twyla.urbano@cambridge.org', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-071: {'requestId': 'R-20230729-071', 'successful_emails': ['adaojudith@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-109: {'requestId': 'R-20230729-109', 'successful_emails': ['vincegabriellelita@gmail.com', 'jashleinleanne@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-095: {'requestId': 'R-20230729-095', 'successful_emails': ['bautistaninaa@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-136: {'requestId': 'R-20230729-136', 'successful_emails': ['chcvasco26@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-015: {'requestId': 'R-20230729-015', 'successful_emails': ['brizohazel@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-009: {'requestId': 'R-20230729-009', 'successful_emails': ['loriviccua02@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-058: {'requestId': 'R-20230729-058', 'successful_emails': ['joannaheramil@outlook.com', 'gilbert.m005+aws@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-084: {'requestId': 'R-20230729-084', 'successful_emails': ['rafael.louie.miguel@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-041: {'requestId': 'R-20230729-041', 'successful_emails': ['lloydllames@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-056: {'requestId': 'R-20230729-056', 'successful_emails': ['422004870@ntc.edu.ph', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-083: {'requestId': 'R-20230729-083', 'successful_emails': ['acemayorga15@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-087: {'requestId': 'R-20230729-087', 'successful_emails': ['marlonyambao27@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-043: {'requestId': 'R-20230729-043', 'successful_emails': ['2221084@slu.edu.ph', 'dalitdave1873@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-133: {'requestId': 'R-20230729-133', 'successful_emails': ['crisselda@opswerks.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}
+
+R-20230729-092: {'requestId': 'R-20230729-092', 'successful_emails': ['lloydlegaspi0802@gmail.com', 'markachilesflores2004@gmail.com'], 'failed_emails': [], 'errors': [], 'body': 'Email sent successfully!'}

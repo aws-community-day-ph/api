@@ -16,15 +16,20 @@ for item in items:  # item.keys() = ["imagePath", "emails", "requestId", "status
         continue
 
     requestId = item["requestId"]
-    endpoint = f"https://z3efpmw3k2.execute-api.ap-southeast-1.amazonaws.com/dev/requests/{requestId}"
+    endpoint = f"https://z3efpmw3k2.execute-api.ap-southeast-1.amazonaws.com/dev/send_ses_many/{requestId}"
 
-    response = requests.get(endpoint)
+    # print(endpoint)
 
-    if response.status_code != 200:
-        print(f"{requestId}: {response.status_code}")
-        continue
+    response = requests.post(endpoint)
 
-    print(f"{requestId}: {response.json()}")
+    with open("logs.txt", "a") as f:
+        if response.status_code != 200:
+            f.write(f"{requestId}: {response.status_code} | {response.json()}\n\n")
+            print(f"{requestId}: {response.status_code} | {response.json()}\n")
+            continue
+
+        f.write(f"{requestId}: {response.json()}\n\n")
+        print(f"{requestId}: {response.json()}\n")
 
 
 # requestId = "971604"

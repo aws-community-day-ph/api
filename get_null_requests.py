@@ -22,11 +22,11 @@ for i in items:
     except Exception as e:
         print(f"exception: {e}")
     ctr += 1
-    # for j in items:
-    #     try:
-    #         if i["emails"] == j["emails"] and i["requestId"] != j["requestId"]:
-    #             print(f"{i} | {j}")
-    #     except KeyError:
-    #         print(i)
+    for j in items:
+        try:
+            if i["emails"] == j["emails"] and i["requestId"] != j["requestId"]:
+                print(f"{i} | {j}")
+        except KeyError:
+            print(i)
 
 print(ctr)

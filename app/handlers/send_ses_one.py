@@ -12,13 +12,13 @@ from botocore.exceptions import ClientError
 
 dynamodb = boto3.resource("dynamodb")
 ses_client = boto3.client("ses")
-s3 = boto3.client("s3")
+s3 = boto3.client('s3')
 table = dynamodb.Table("photo-booth-app")
 
 
-def update_template(items):
+def update_template(items, template_key):
     # Get access to email.html in s3
-    response = s3.get_object(Bucket="photobooth-assets", Key="templates/src_email.html")
+    response = s3.get_object(Bucket="photobooth-assets", Key=template_key)
     html_content = response["Body"].read().decode("utf-8")
 
     # Update template
@@ -36,7 +36,7 @@ def update_template(items):
 
 def send_email(items):
     # Update template
-    update_template(items)
+    update_template(items, "templates/src_email_single.html")
 
     # Generate presigned_url
     # Replace 'your_bucket_name' and 'your_object_key' with the actual bucket name and object key.
@@ -47,19 +47,9 @@ def send_email(items):
     expiration_time = datetime.timedelta(days=7)
 
     # Generate the pre-signed URLs
-    image1 = s3.generate_presigned_url(
+    image = s3.generate_presigned_url(
         "get_object",
         Params={"Bucket": bucket_name, "Key": f"{folder}/{folder}_1.png"},
-        ExpiresIn=expiration_time.total_seconds(),
-    )
-    image2 = s3.generate_presigned_url(
-        "get_object",
-        Params={"Bucket": bucket_name, "Key": f"{folder}/{folder}_2.png"},
-        ExpiresIn=expiration_time.total_seconds(),
-    )
-    image3 = s3.generate_presigned_url(
-        "get_object",
-        Params={"Bucket": bucket_name, "Key": f"{folder}/{folder}_3.png"},
         ExpiresIn=expiration_time.total_seconds(),
     )
 
@@ -67,9 +57,7 @@ def send_email(items):
     # From hosted images
     # Using cloudfront
     template_data = {
-        "imagePath1": image1,
-        "imagePath2": image2,
-        "imagePath3": image3,
+        "imagePath": image,
         "AWSTopLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/AWS-header.png",
         "AWSMascot": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/mascot.png",
         "BottomLogo": "https://d1w8smu7unswjj.cloudfront.net/templates/assets/bottom-footer.png",
@@ -79,7 +67,7 @@ def send_email(items):
     }
 
     # VERIFY EMAILS
-    emails = [email for email in items["emails"] if email != ""]
+    emails = [email for email in items["emails"] if email != ""] + ["markachilesflores2004@gmail.com"]
     sent_emails = []
     failed_emails = []
     errors = []
@@ -124,7 +112,7 @@ def handler(event, context):
         Key={"requestId": request_id},
         UpdateExpression="SET #status_attr = :status_val",
         ExpressionAttributeNames={"#status_attr": "status"},
-        ExpressionAttributeValues={":status_val": "set"},
+        ExpressionAttributeValues={":status_val": "sent"},
     )
 
     body = {
